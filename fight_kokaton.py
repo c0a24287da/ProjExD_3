@@ -102,7 +102,7 @@ class Beam:
         self.vx,self.vy = bird.dire #こうかとん向いている方向代入
         # self.rct.centery = bird.rct.centery  # こうかとんの中心縦座標
         # self.rct.left = bird.rct.right  # こうかとんの右座標
-        # self.vx, self.vy = +5, 0
+        # self.vx, self.vy = +5, 0 
         #回転角度算出
         angle = math.degrees(math.atan2(-self.vy, self.vx))
         self.img = pg.transform.rotozoom(self.img, angle, 1.0)
@@ -158,6 +158,7 @@ class Score: #スコア表示
         self.img = self.fonto.render(f"スコア: {self.value}", 0, self.color) #文字列Surfacce生成
         self.rct = self.img.get_rect()
         self.rct.center = (100, HEIGHT - 50) #文字列の中心座標
+        
     def update(self, screen: pg.Surface): #updateメソッド
         self.img = self.fonto.render(f"スコア: {self.value}", 0, self.color) #現在のスコアを表示させる文字列Surface生成
         screen.blit(self.img, self.rct) #スクリーンにBlit
